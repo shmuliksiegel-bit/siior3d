@@ -1,79 +1,54 @@
 import Link from "next/link";
-import { ArrowRight, Play } from "lucide-react";
 
-const village = "https://www.social-academics.com/studio/still-village.png";
-const windowStill = "https://www.social-academics.com/studio/still-window.png";
-const worldBanner = "https://www.social-academics.com/brand/hero-banner.png";
+const logo = "https://okssmxntktgzmmvbpuvq.supabase.co/storage/v1/object/public/SIIOR_3D/Logo/Logo_Wide.png";
 const reel = "https://www.social-academics.com/studio/logo-reel.mp4";
+
+const projects = [
+  { id: "my-social-corner", number: "01", type: "Interactive world", title: "My Social Corner", line: "A place for stories, play, discovery, and connection." },
+  { id: "social-circles", number: "02", type: "Original series", title: "Social Circles", line: "Animated stories about the complicated, funny work of being human." },
+  { id: "social-circles-game", number: "03", type: "Game project", title: "Social Circles: The Game", line: "A developing interactive extension of the Social Circles world." },
+];
 
 export default function HomePage() {
   return (
     <>
-      <section className="hero">
-        <img className="hero-image" src={worldBanner} alt="" />
-        <video className="hero-video" autoPlay muted loop playsInline aria-hidden="true">
-          <source src={reel} type="video/mp4" />
-        </video>
-        <div className="hero-shade" />
-        <div className="hero-content">
-          <p className="eyebrow">SIIOR 3D · Animation Studios</p>
-          <h1>Worlds begin<br />with a spark.</h1>
-          <p>We create characters, stories, games, and cinematic worlds with heart, humor, and an unreasonable amount of imagination.</p>
-          <div className="hero-actions">
-            <Link href="/work" className="button primary">Explore our work <ArrowRight size={16} /></Link>
-            <a href="https://youtube.com" className="button" target="_blank" rel="noopener noreferrer">Watch the reel <Play size={15} /></a>
-          </div>
+      <section className="home-hero" aria-labelledby="hero-title">
+        <div className="hero-mark"><img src={logo} alt="SIIOR 3D Animation Studios" /></div>
+        <video className="hero-reel" autoPlay muted playsInline aria-hidden="true"><source src={reel} type="video/mp4" /></video>
+        <div className="hero-statement">
+          <p className="kicker">Animation · Games · Original worlds</p>
+          <h1 id="hero-title">We create worlds.</h1>
+          <p>Places shaped by imagination—made to be entered, remembered, and felt.</p>
         </div>
       </section>
 
-      <section className="section light">
-        <div className="section-head">
-          <p className="eyebrow">Featured worlds</p>
-          <div>
-            <h2 className="display">Stories you can enter. Characters you remember.</h2>
-            <p>Our first worlds grew from a desire to help people connect. They are only the beginning. SIIOR is built for original entertainment, interactive experiences, shorts, games, and whatever comes next.</p>
-          </div>
-        </div>
-        <div className="work-grid">
-          <Link href="/work#my-social-corner" className="work-card">
-            <img src={village} alt="My Social Corner world" />
-            <div className="work-copy"><span>Interactive world</span><h3>My Social Corner</h3><p>A living world of stories, play, practice, and discovery.</p></div>
-          </Link>
-          <Link href="/work#social-circles" className="work-card">
-            <img src={windowStill} alt="Social Circles story world" />
-            <div className="work-copy"><span>Original series</span><h3>Social Circles</h3><p>Friendship, feeling, humor, and the wonderfully complicated business of being human.</p></div>
-          </Link>
-          <Link href="/work#games" className="work-card">
-            <img src={worldBanner} alt="Original animated characters and environments" />
-            <div className="work-copy"><span>Games & interactive</span><h3>Play changes the story.</h3><p>Social games and interactive experiments where audiences do more than watch.</p></div>
-          </Link>
+      <section className="intro-section">
+        <p className="section-label">SIIOR 3D</p>
+        <div className="intro-copy">
+          <h2>Creativity gives an idea somewhere to live.</h2>
+          <p>SIIOR 3D is an animation studio developing original stories, characters, games, and interactive experiences.</p>
         </div>
       </section>
 
-      <section className="manifesto">
-        <blockquote>We don&apos;t make content.<br />We build <em>places worth returning to.</em></blockquote>
-      </section>
-
-      <section className="section light">
-        <div className="section-head">
-          <p className="eyebrow">What we do</p>
-          <h2 className="display">One studio. Many ways to make something unforgettable.</h2>
+      <section className="projects-section" aria-labelledby="projects-title">
+        <div className="section-title-row">
+          <div><p className="section-label">Projects</p><h2 id="projects-title">Worlds in development</h2></div>
+          <Link href="/projects" className="text-link">View all projects <span aria-hidden="true">↗</span></Link>
         </div>
-        <div className="disciplines">
-          {[
-            ["Animation", "Characters, shorts, series, visual development, and cinematic storytelling."],
-            ["Games", "Playful systems, social games, interactive worlds, and new forms of participation."],
-            ["Original IP", "Stories and characters designed to grow across screens, formats, and generations."],
-            ["Creative production", "A flexible studio for meaningful collaborations, experiments, and ambitious ideas."],
-          ].map(([title, body]) => <div className="discipline" key={title}><strong>{title}</strong><span>{body}</span></div>)}
+        <div className="project-list">
+          {projects.map((project) => (
+            <Link href={`/projects#${project.id}`} className="project-row" key={project.title}>
+              <span className="project-number">{project.number}</span><span className="project-type">{project.type}</span>
+              <span className="project-title">{project.title}</span><span className="project-line">{project.line}</span>
+              <span className="project-arrow" aria-hidden="true">→</span>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section className="future">
-        <p className="eyebrow">Still becoming</p>
-        <h2 className="display">The next world has not been named yet.</h2>
-        <p>That is the point. SIIOR was built with room for feature stories, unexpected partnerships, strange little shorts, games no one has played before, and ideas we cannot see from here.</p>
-        <Link href="/contact" className="button primary" style={{marginTop:"2rem"}}>Make something with us <ArrowRight size={16} /></Link>
+      <section className="shorts-teaser">
+        <div><p className="section-label">Short films</p><h2>A small screen for new ideas.</h2></div>
+        <p>Original shorts and studio experiments will appear here as they are completed.</p>
       </section>
     </>
   );
