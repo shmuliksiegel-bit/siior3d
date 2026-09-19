@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { CookieConsent } from "@/components/cookie-consent";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://siior3d.com";
 
@@ -12,10 +13,10 @@ export const metadata: Metadata = {
     template: "%s | SIIOR 3D",
   },
   description:
-    "SIIOR 3D is an independent animation and interactive studio creating original characters, cinematic stories, games, and worlds.",
+    "SIIOR 3D is an animation studio creating original stories, games, characters, and worlds.",
   openGraph: {
     title: "SIIOR 3D | Animation Studios",
-    description: "Characters. Stories. Worlds still becoming.",
+    description: "We create worlds.",
     url: siteUrl,
     siteName: "SIIOR 3D",
     type: "website",
@@ -25,13 +26,10 @@ export const metadata: Metadata = {
       height: 630,
     }],
   },
-  icons: {
-    icon: "https://okssmxntktgzmmvbpuvq.supabase.co/storage/v1/object/public/SIIOR_3D/Logo/68ceee65-1ed3-4cdb-8316-d2710201cd91.png",
-  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#f7f6f2",
   width: "device-width",
   initialScale: 1,
 };
@@ -41,10 +39,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <SiteHeader />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <SiteFooter />
+        <CookieConsent />
       </body>
     </html>
   );
 }
-
