@@ -3,7 +3,7 @@ import { Instagram, Linkedin, Youtube } from "lucide-react";
 import { PrivacyFooterControls } from "@/components/cookie-consent";
 export function SiteFooter() {
   return <footer className="footer">
-    <div className="footer-brand"><p className="footer-mark">SIIOR <span>3D</span></p><p>Bringing imagination to life.</p></div>
+    <div className="footer-brand"><p className="footer-mark">SIIOR <span>3D</span></p><p>Bringing Imagination to Life.</p></div>
     <div className="footer-column"><p>Explore</p><Link href="/productions">Productions</Link><Link href="/technology">Technology</Link><Link href="/studio">Studio</Link><Link href="/contact">Contact</Link></div>
     <div className="footer-column"><p>Studio</p><Link href="/studio#history">History</Link><Link href="/studio#people">People</Link><Link href="/join">Join Us</Link></div>
     <div className="footer-social" aria-label="Social media"><a href="#" aria-label="Instagram placeholder"><Instagram size={19} /></a><a href="#" aria-label="LinkedIn placeholder"><Linkedin size={19} /></a><a href="#" aria-label="YouTube placeholder"><Youtube size={21} /></a></div>

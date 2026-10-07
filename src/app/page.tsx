@@ -18,7 +18,7 @@ export default function HomePage() {
   return <>
     <section className="home-hero" aria-labelledby="hero-title">
       <img className="hero-logo" src={logo} alt="SIIOR 3D Animation Studios" />
-      <div className="hero-copy"><h1 id="hero-title">SIIOR 3D brings imagination to life.</h1></div>
+      <div className="hero-copy"><h1 id="hero-title">Bringing Imagination to Life.</h1></div>
     </section>
     <section className="montage" aria-label="SIIOR 3D production montage">
       <div className="montage-wide placeholder-frame"><span>Opening montage</span><small>Replace with a real production hero or environment render</small></div>

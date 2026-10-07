@@ -9,14 +9,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://siior3d.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "SIIOR 3D | Animation Studios",
+    default: "SIIOR 3D | Bringing Imagination to Life",
     template: "%s | SIIOR 3D",
   },
   description:
     "SIIOR 3D is an animation studio creating original stories, games, characters, and worlds.",
   openGraph: {
-    title: "SIIOR 3D | Animation Studios",
-    description: "We create worlds.",
+    title: "SIIOR 3D | Bringing Imagination to Life",
+    description: "Animation, interactive experiences, games, tools, and original worlds from SIIOR 3D.",
     url: siteUrl,
     siteName: "SIIOR 3D",
     type: "website",
