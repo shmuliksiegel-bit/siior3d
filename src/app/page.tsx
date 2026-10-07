@@ -1,37 +1,17 @@
-import Link from "next/link";
+import { ProductionMontage, type Production } from "@/components/production-montage";
 
 const logo = "https://okssmxntktgzmmvbpuvq.supabase.co/storage/v1/object/public/SIIOR_3D/Logo/Logo_Wide.png";
-const productions = [
-  { id: "my-social-corner", format: "Interactive world", title: "My Social Corner", shot: "A finished wide view of a welcoming street, room, or gathering place from the world." },
-  { id: "social-circles", format: "Original series", title: "Social Circles", shot: "A genuine story frame with two or more characters in a moment of connection, conflict, or comedy." },
-  { id: "social-circles-interactive", format: "Interactive production", title: "Social Circles Interactive", shot: "A gameplay frame or development view that clearly shows the player experience." },
-  { id: "siior-shorts", format: "Short-form animation", title: "SIIOR Shorts", shot: "A frame from a completed short, animation test, or studio experiment." },
-];
-const processShots = [
-  { label: "Performance", request: "Motion-capture performance in progress" },
-  { label: "Voice", request: "A candid voice-recording session" },
-  { label: "Animation", request: "A genuine Maya viewport or animation pass" },
-  { label: "Worldbuilding", request: "An environment progressing from blockout to final" },
+const productions: Production[] = [
+  { id:"my-social-corner", format:"Interactive world", title:"My Social Corner", description:"An interactive world built around stories, play, and everyday discovery.", shot:"Wide environment or recognizable destination from the real production", href:"https://mysocialcorner.com" },
+  { id:"social-circles", format:"Original series", title:"Social Circles", description:"An original animated series about friendship, communication, conflict, and the funny complications of being human.", shot:"Finished story frame with principal characters interacting" },
+  { id:"social-circles-interactive", format:"Interactive production", title:"Social Circles Interactive", description:"The characters and situations of Social Circles extended through play, choice, and shared experience.", shot:"Gameplay frame, interface study, or player-view scene" },
+  { id:"siior-shorts", format:"Short-form animation", title:"SIIOR Shorts", description:"Short stories, character moments, comedy, and studio experiments.", shot:"A frame from a completed short, animation test, or studio experiment" },
 ];
 
 export default function HomePage() {
   return <>
-    <section className="home-hero" aria-labelledby="hero-title">
-      <img className="hero-logo" src={logo} alt="SIIOR 3D Animation Studios" />
-      <div className="hero-copy"><h1 id="hero-title">Bringing Imagination to Life.</h1></div>
-    </section>
-    <section className="montage" aria-label="SIIOR 3D production montage">
-      <div className="montage-wide placeholder-frame"><span>Opening montage</span><small>Replace with a real production hero or environment render</small></div>
-      <div className="montage-stack"><div className="placeholder-frame"><span>Performance</span><small>Mocap in progress</small></div><div className="placeholder-frame"><span>Animation</span><small>Genuine working viewport</small></div></div>
-    </section>
-    <section className="productions-section" aria-labelledby="productions-title">
-      <div className="section-heading"><p className="section-label">Productions</p><h2 id="productions-title">Original worlds. In motion.</h2><Link href="/productions" className="text-link">View all productions <span aria-hidden="true">→</span></Link></div>
-      <div className="production-grid">{productions.map((production) => <Link href={`/productions#${production.id}`} className="production-card" key={production.id}><div className="production-art placeholder-frame"><small>{production.shot}</small></div><p>{production.format}</p><h3>{production.title}</h3></Link>)}</div>
-    </section>
-    <section className="process-section" aria-labelledby="process-title">
-      <div className="process-intro"><p className="section-label">Inside the work</p><h2 id="process-title">Story, performance, and technology—one frame at a time.</h2></div>
-      <div className="process-grid">{processShots.map((shot) => <div className="process-shot placeholder-frame" key={shot.label}><span>{shot.label}</span><small>{shot.request}</small></div>)}</div>
-    </section>
-    <section className="technology-teaser"><div><p className="section-label">Technology</p><h2>Tools built in the course of making.</h2></div><div><p>Production workflows, motion and facial performance, Maya tools, and selected resources created at SIIOR 3D.</p><Link href="/technology" className="light-link">Explore technology <span aria-hidden="true">→</span></Link></div></section>
+    <section className="home-hero" aria-labelledby="hero-title"><img className="hero-logo" src={logo} alt="SIIOR 3D Animation Studios" /><div className="hero-copy"><h1 id="hero-title">Bringing Imagination to Life.</h1></div></section>
+    <section className="montage" aria-label="SIIOR 3D production montage"><div className="montage-wide placeholder-frame"><span>Opening montage</span><small>Real production hero or environment render</small></div><div className="montage-stack"><div className="placeholder-frame"><span>Performance</span><small>Mocap in progress</small></div><div className="placeholder-frame"><span>Animation</span><small>Genuine working viewport</small></div></div></section>
+    <section className="productions-section home-productions" aria-labelledby="productions-title"><div className="section-heading"><p className="section-label">Productions</p><h2 id="productions-title">Original worlds.</h2><p>Click a production to learn more.</p></div><ProductionMontage productions={productions} compact /></section>
   </>;
 }
