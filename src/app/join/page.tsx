@@ -1,0 +1,3 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Join Us" };
+export default function JoinPage() { return <><header className="page-intro"><p className="section-label">Join SIIOR 3D</p><h1>Great work is collaborative.</h1></header><section className="join-body"><p>We are not currently advertising permanent positions. Future opportunities and production-specific collaborations will be posted here.</p><div className="join-roles"><span>Artists</span><span>Animators</span><span>Performers</span><span>Developers</span><span>Writers</span><span>Technical artists</span></div></section></>; }
